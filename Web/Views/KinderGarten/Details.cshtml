@@ -1,0 +1,85 @@
+﻿@model Model.KinderGarten
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminGartenLayout.cshtml";
+}
+
+<div class="container">
+    <h2>Details</h2>
+
+ 
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Adress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Adress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tel)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ScoreEval)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ScoreEval)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Logo)
+            </dt>
+
+
+            <dd>
+                <img src="@Url.Content("~/Content/Upload/"+ @Html.DisplayFor(model => model.Logo))" height="300" width="350" alt="Image" />
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Latitude)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Latitude)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Longitude)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Longitude)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</div>

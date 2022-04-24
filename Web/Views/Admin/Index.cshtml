@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Dashboard
+       
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<!-- /.sidebar -->
+
+<section class="content">
+
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>
+                        @ViewBag.ChildsSubscribed
+                    </h3>
+                    <p>
+                        Childs Subscribed in 2021
+                    </p>
+                </div>
+                <div class="icon" style=" bottom: -12px;
+        font-size: 66px;
+">
+                    <i class="fa fa-child"></i>
+                </div>
+
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+
+                    <p>
+                        <strong>KinderGarten Name :</strong><br /> @ViewBag.namekindergarten
+                    </p>
+                    <p> <strong>Max Score Evaluation :</strong><br /> @ViewBag.maxscore</p>
+
+
+                </div>
+                <div class="icon" style=" bottom: -12px;
+        font-size: 66px;">
+                    <i class="fas fa-school"></i>
+                </div>
+
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>
+                        @ViewBag.NbrUsersRegistered
+                    </h3>
+                    <p>
+                        User Registrations
+                    </p>
+                </div>
+                <div class="icon" style=" bottom: -12px;
+        font-size: 66px;
+">
+                    <i class="fa fa-user-check"></i>
+                </div>
+
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>
+                        @ViewBag.NbrUsersRegisteredThisMonth
+                    </h3>
+                    <p>
+                        Users registered this month
+                    </p>
+                </div>
+                <div class="icon" style=" bottom: -12px;
+        font-size: 66px;
+">
+                    <i class="fa fa-chart-pie"></i>
+                </div>
+
+            </div>
+        </div><!-- ./col -->
+    </div><!-- /.row -->
+    <!-- top row -->
+    <div class="row">
+        <div class="col-xs-12 connectedSortable">
+
+        </div><!-- /.col -->
+    </div>
+    <!-- /.row -->
+    <!-- Main row -->
+    
+   
+
+</section>

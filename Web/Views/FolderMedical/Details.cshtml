@@ -1,0 +1,156 @@
+﻿@model Model.FolderMedical
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutMedical.cshtml";
+}
+
+ 
+
+<div>
+
+    @Html.HiddenFor(model => model.Id)
+
+    <h4> Details FolderMedical</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Creation date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Allergy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Allergy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Particularity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Particularity)
+        </dd>
+
+
+
+    </dl>
+</div>
+
+
+<div>
+
+
+    <h4>Vaccine history</h4>
+
+
+
+    <table class="table table-bordered table-hover table-striped table-checkable table-highlight-head mb-4">
+        <tr>
+            <th>
+                Description
+            </th>
+            <th>
+                Month number
+            </th>
+        </tr>
+
+        @foreach (var item in Model.LisChildVaccines)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonthNumber)
+                </td>
+            </tr>
+        }
+    </table>
+
+
+
+</div>
+
+<div>
+    <h4>Vaccine to do </h4>
+
+    <table class="table table-bordered table-hover table-striped table-checkable table-highlight-head mb-4">
+        <tr>
+            <th>
+                Description
+            </th>
+            <th>
+                Month number
+            </th>
+        </tr>
+
+        @foreach (var item in Model.ListVaccinesToDo)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonthNumber)
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
+
+
+<div>
+    <h4>Consultation history </h4>
+
+    <table class="table table-bordered table-hover table-striped table-checkable table-highlight-head mb-4">
+        <tr>
+            <th>
+                Creation date
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Weight
+            </th>
+            <th>
+                Height
+            </th>
+        </tr>
+
+        @foreach (var item in Model.LisConsultations)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Height)
+        </td>
+    </tr>
+        }
+    </table>
+
+</div>
+
+
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

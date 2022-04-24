@@ -1,0 +1,132 @@
+﻿@model Model.User
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script type="text/javascript">
+    function deleteOrder(OrderID) {
+        debugger;
+        swal({
+            title: "Are you sure?",
+            text: "Are you sure that you want to delete this Order?",
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonText: "Yes, delete it!",
+            confirmButtonColor: "#ec6c62"
+        },
+            function () {
+                $.ajax({
+                    url: "/Admin/Delete/" + OrderID,
+                    data:
+                    {
+                        "OrderID": OrderID
+                    },
+                    type: "DELETE"
+                })
+                    .done(function (data) {
+                        sweetAlert
+                            ({
+                                title: "Deleted!",
+                                text: "Your file was successfully deleted!",
+                                type: "success"
+                            },
+                                function () {
+                                    window.location.href = '/Admin/Users';
+                                });
+                    })
+                    .error(function (data) {
+                        swal("Oops", "We couldn't connect to the server!", "error");
+                    });
+            });
+    }
+</script>
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>User</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScoreDelegate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScoreDelegate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+      
+    }
+
+
+
+
+
+</div>
+
+
